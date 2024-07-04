@@ -1,0 +1,287 @@
+Matrizen und deren Eigenschaften
+Implementierung
+
+matlab
+
+% Erstellen einer Matrix
+A = [1 2 3; 4 5 6; 7 8 9];
+
+% Transponieren einer Matrix
+A_transpose = A';
+
+% Bestimmung der Determinante
+det_A = det(A);
+
+% Bestimmung der Inversen einer Matrix
+A_inv = inv(A);
+
+% Berechnung der Spur (Summe der Diagonalelemente)
+trace_A = trace(A);
+
+% Kommentierung:
+% A ist die ursprüngliche Matrix.
+% A_transpose ist die transponierte Matrix von A.
+% det_A ist die Determinante von A.
+% A_inv ist die Inverse von A (falls A invertierbar ist).
+% trace_A ist die Spur von A.
+
+Determinanten
+Implementierung
+
+matlab
+
+% Determinante einer Matrix berechnen
+B = [3 1 2; 1 4 5; 2 5 6];
+det_B = det(B);
+
+% Kommentierung:
+% B ist eine 3x3 Matrix.
+% det_B ist die Determinante von B, die durch die Funktion det berechnet wird.
+
+Lineare Gleichungssysteme
+Implementierung
+
+matlab
+
+% Lineares Gleichungssystem lösen: Ax = b
+A = [2 1; 1 3];
+b = [1; 2];
+
+% Lösung durch Invertieren der Matrix
+x = inv(A) * b;
+
+% Lösung durch Matlab-eigene Funktion
+x_direct = A \ b;
+
+% Kommentierung:
+% A ist die Koeffizientenmatrix.
+% b ist der rechte Vektor.
+% x ist die Lösung des Gleichungssystems durch Inversion von A.
+% x_direct ist die Lösung des Gleichungssystems durch den Matlab-eigenen Lösungsoperator \.
+
+Eigenwerte und Eigenvektoren
+Implementierung
+
+matlab
+
+% Eigenwerte und Eigenvektoren einer Matrix berechnen
+C = [4 -2; 1 1];
+[eigenvectors, eigenvalues] = eig(C);
+
+% Kommentierung:
+% C ist die Matrix, deren Eigenwerte und Eigenvektoren berechnet werden.
+% eigenvectors sind die Eigenvektoren der Matrix C.
+% eigenvalues ist eine Diagonalmatrix, deren Diagonalelemente die Eigenwerte von C sind.
+
+Differentialrechnung
+Implementierung der Ableitung
+
+matlab
+
+% Symbolische Variable definieren
+syms x;
+
+% Funktion definieren
+f = x^3 - 2*x^2 + 5*x - 3;
+
+% Erste Ableitung
+df = diff(f);
+
+% Zweite Ableitung
+d2f = diff(f, 2);
+
+% Kommentierung:
+% x ist die symbolische Variable.
+% f ist die Funktion.
+% df ist die erste Ableitung von f.
+% d2f ist die zweite Ableitung von f.
+
+Lineare Optimierung
+Implementierung
+
+matlab
+
+% Lineares Optimierungsproblem definieren
+f = [-1; -2]; % Zielfunktion: Maximiere -x - 2y
+A = [1 1; 3 1; 1 2]; % Ungleichungsbedingungen
+b = [2; 5; 4]; % Rechte Seite der Ungleichungen
+lb = [0; 0]; % Untere Schranken
+
+% Optimierung durchführen
+[x, fval] = linprog(f, A, b, [], [], lb, []);
+
+% Kommentierung:
+% f ist der Vektor der Zielfunktion.
+% A ist die Matrix der Ungleichungsbedingungen.
+% b ist der Vektor der rechten Seiten der Ungleichungen.
+% lb sind die unteren Schranken der Variablen.
+% x ist die optimale Lösung.
+% fval ist der Wert der Zielfunktion an der optimalen Lösung.
+
+Konvergenz
+Implementierung
+
+matlab
+
+% Untersuchung der Konvergenz einer Reihe
+syms n;
+
+% Definiere die Reihe
+u_n = 1/n^2;
+
+% Summiere die ersten 1000 Terme
+sum_series = symsum(u_n, n, 1, 1000);
+
+% Kommentierung:
+% n ist die symbolische Variable.
+% u_n ist das allgemeine Glied der Reihe.
+% sum_series ist die Summe der ersten 1000 Glieder der Reihe.
+
+Differenzierbarkeit und Stetigkeit
+Implementierung
+
+matlab
+
+% Differenzierbarkeit und Stetigkeit untersuchen
+syms x;
+
+% Funktion definieren
+g = piecewise(x < 0, x^2, x >= 0, x^3);
+
+% Erste Ableitung
+dg = diff(g);
+
+% Stetigkeit überprüfen
+limit_left = limit(g, x, 0, 'left');
+limit_right = limit(g, x, 0, 'right');
+value_at_zero = subs(g, x, 0);
+
+% Kommentierung:
+% g ist die stückweise definierte Funktion.
+% dg ist die erste Ableitung von g.
+% limit_left ist der Grenzwert von g für x, das sich 0 von links nähert.
+% limit_right ist der Grenzwert von g für x, das sich 0 von rechts nähert.
+% value_at_zero ist der Funktionswert von g bei x = 0.
+
+Master-Theorem
+
+Das Master-Theorem wird hauptsächlich in der Analyse von rekursiven Algorithmen
+ verwendet. Matlab bietet dafür keine direkte Funktionalität, aber wir können 
+die rekursive Beziehung direkt untersuchen.
+Beispiel
+
+matlab
+
+% Master-Theorem Beispiel für T(n) = 2T(n/2) + n
+syms n;
+
+% Rekursive Beziehung definieren
+T_n = 2 * T(n/2) + n;
+
+% Rekursionsauflösung (allgemein formell)
+% Dies erfordert oft manuelle Berechnung oder eine spezielle Funktion
+
+Unbestimmte/Bestimmte Integrale
+Implementierung
+
+matlab
+
+% Symbolische Variable definieren
+syms x;
+
+% Funktion definieren
+h = x^2 + 3*x + 2;
+
+% Unbestimmtes Integral
+indef_integral = int(h);
+
+% Bestimmtes Integral von 0 bis 1
+def_integral = int(h, 0, 1);
+
+% Kommentierung:
+% h ist die zu integrierende Funktion.
+% indef_integral ist das unbestimmte Integral von h.
+% def_integral ist das bestimmte Integral von h im Intervall [0, 1].
+
+Untersummen/Obersummen
+Implementierung
+
+matlab
+
+% Rechteckregel (Untersummen und Obersummen)
+f = @(x) x^2 + 3*x + 2; % Funktion
+a = 0; % Untere Grenze
+b = 1; % Obere Grenze
+n = 10; % Anzahl der Rechtecke
+
+% Berechnung der Untersumme
+dx = (b - a) / n;
+x_untersumme = a:dx:(b-dx);
+untersumme = sum(f(x_untersumme) * dx);
+
+% Berechnung der Obersumme
+x_obersumme = (a+dx):dx:b;
+obersumme = sum(f(x_obersumme) * dx);
+
+% Kommentierung:
+% f ist die Funktion.
+% a und b sind die Integrationsgrenzen.
+% n ist die Anzahl der Rechtecke.
+% dx ist die Breite jedes Rechtecks.
+% x_untersumme sind die x-Werte für die Untersumme.
+% untersumme ist die berechnete Untersumme.
+% x_obersumme sind die x-Werte für die Obersumme.
+% obersumme ist die berechnete Obersumme.
+
+Bestimmung einer Ableitung
+Implementierung
+
+matlab
+
+% Symbolische Variable definieren
+syms x;
+
+% Funktion definieren
+k = x^3 + 2*x^2 + x + 1;
+
+% Erste Ableitung
+dk = diff(k);
+
+% Kommentierung:
+% k ist die Funktion.
+% dk ist die erste Ableitung von k.
+
+Stationäre Punkte sowie lokale und globale Extrema, Wendepunkte
+Implementierung
+
+matlab
+
+% Symbolische Variable definieren
+syms x;
+
+% Funktion definieren
+m = x^4 - 4*x^3 + 6*x^2 - 4*x + 1;
+
+% Erste Ableitung
+dm = diff(m);
+
+% Zweite Ableitung
+d2m = diff(m, 2);
+
+% Nullstellen der ersten Ableitung (stationäre Punkte)
+critical_points = solve(dm == 0, x);
+
+% Untersuchung der zweiten Ableitung an den kritischen Punkten
+inflection_points = solve(d2m == 0, x);
+
+% Kommentierung:
+% m ist die Funktion.
+% dm ist die erste Ableitung von m.
+% d2m ist die zweite Ableitung von m.
+% critical_points sind die Lösungen der ersten Ableitung (stationäre Punkte).
+% inflection_points sind die Lösungen der zweiten Ableitung (Wendepunkte).
+
+Jede dieser Implementierungen zeigt grundlegende Operationen,
+die in Matlab verwendet werden können, um die genannten mathematischen
+Konzepte zu untersuchen und zu berechnen. Die Kommentierungen im Code helfen 
+dabei, die einzelnen Schritte zu verstehen.
